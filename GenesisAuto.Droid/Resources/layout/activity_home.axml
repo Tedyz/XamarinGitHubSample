@@ -7,22 +7,7 @@
     android:layout_height="match_parent">
 	<include layout="@layout/toolbar" />
 
-	<FrameLayout 
-		android:id="@+id/progressContainer"
-		android:layout_width="match_parent"
-		android:layout_height="3dp">
-		<ProgressBar 
-			android:id="@+id/progressBar"
-			style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-			android:layout_width="match_parent"
-			android:layout_height="8dp"
-			android:layout_marginTop="-3dp"
-			android:layout_gravity="top"
-			android:progressDrawable="@drawable/custom_progress"
-			local:MvxBind="Visible Loading"
-			android:background="@android:color/transparent"
-			android:indeterminate="true"/>
-	</FrameLayout>
+	<include layout="@layout/loading_bar" />
 
 	<android.support.v7.widget.SearchView
         android:id="@+id/search"
@@ -55,8 +40,8 @@
 				android:layout_width="match_parent"
 				android:divider="@null"
 				android:dividerHeight="0dp"
-				local:MvxItemTemplate="@layout/item_repositories"
-				local:MvxBind="ItemsSource Repositories"/>
+				local:MvxItemTemplate="@layout/item_repository"
+				local:MvxBind="ItemsSource Repositories; ItemClick SelectRepository"/>
 		</android.support.v4.widget.SwipeRefreshLayout>
 
 		<android.support.design.widget.FloatingActionButton
