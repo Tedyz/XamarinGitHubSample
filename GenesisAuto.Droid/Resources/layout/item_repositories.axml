@@ -38,6 +38,7 @@
 			android:layout_marginTop="10dp"
 			android:textColor="@color/description"
 			android:textSize="11dp"
+			android:maxLines="3"
 			local:MvxBind="Text Description"
 			android:text="Lorem Ipsum"/>
 		<LinearLayout 

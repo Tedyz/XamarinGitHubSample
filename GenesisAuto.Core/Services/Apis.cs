@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using GenesisAuto.Core.Util;
+using Newtonsoft.Json;
 using Refit;
 using System;
 using System.Collections.Generic;
@@ -13,11 +14,12 @@ namespace GenesisAuto.Core.Services
 
         public Apis()
         {
-            GitHub = RestService.For<IGitHubApi>(new HttpClient
+            var client = new HttpClient(new UriQueryUnescapingHandler())
             {
                 BaseAddress = new Uri("https://api.github.com"),
                 Timeout = TimeSpan.FromSeconds(10)
-            });
+            };
+            GitHub = RestService.For<IGitHubApi>(client);
         }
     }
 }

@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace GenesisAuto.Core.ViewModels
 {
@@ -34,9 +35,11 @@ namespace GenesisAuto.Core.ViewModels
 
                 if (!string.IsNullOrEmpty(Search))
                 {
-                    q = $"{Search}+{q}";
+                    q = $"{Search}+in:name+{q}";
                 }
-                var rep = await Apis.GitHub.GetRepositories(q ,"Repositories", "stars", Page);
+                var response = await Apis.GitHub.GetRepositories(q,"Repositories", "stars", Page);
+
+                var rep = response.Content;
 
                 if (rep != null)
                 {

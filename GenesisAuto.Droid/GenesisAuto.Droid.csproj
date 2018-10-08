@@ -166,11 +166,6 @@
     <AndroidResource Include="Resources\mipmap-hdpi\star.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\circle.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\mipmap-hdpi\githubicon.png" />
   </ItemGroup>
   <ItemGroup>
