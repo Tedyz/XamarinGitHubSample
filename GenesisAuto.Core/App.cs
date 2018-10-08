@@ -14,7 +14,7 @@ namespace GenesisAuto.Core
     {
         public override void Initialize()
         {
-            Mvx.ConstructAndRegisterSingleton<IGitHubService, GitHubService>();
+            Mvx.ConstructAndRegisterSingleton<IApis, Apis>();
 
             RegisterAppStart<HomeViewModel>();
         }

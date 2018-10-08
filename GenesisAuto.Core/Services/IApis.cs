@@ -4,8 +4,8 @@ using System.Text;
 
 namespace GenesisAuto.Core.Services
 {
-    public class GitHubService : IGitHubService
+    public interface IApis
     {
-
+        IGitHubApi GitHub { get; set; }
     }
 }

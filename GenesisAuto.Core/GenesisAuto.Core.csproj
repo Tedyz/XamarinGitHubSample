@@ -5,11 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
+    <PackageReference Include="MvvmCross" Version="6.2.0" />
+    <PackageReference Include="Refit" Version="4.6.48" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MvvmCross" Version="6.2.0" />
+    <Folder Include="Util\" />
   </ItemGroup>
 
 </Project>

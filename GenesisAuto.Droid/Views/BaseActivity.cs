@@ -1,11 +1,11 @@
 ﻿using Android.OS;
 using MvvmCross.Droid.Support.V7.AppCompat;
 using Android.Support.V7.Widget;
+using MvvmCross.ViewModels;
 
 namespace GenesisAuto.Droid.Views
 {
-    public abstract class BaseActivity<TView, TViewModel> : MvxAppCompatActivity
-       where TView : BaseActivity<TView, TViewModel>
+    public abstract class BaseActivity : MvxAppCompatActivity
     {
         protected abstract int ResourceLayoutId
         {
@@ -43,6 +43,15 @@ namespace GenesisAuto.Droid.Views
                 SupportActionBar.SetDisplayHomeAsUpEnabled(true);
                 SupportActionBar.SetHomeButtonEnabled(true);
             }
+        }
+    }
+
+    public abstract class BaseActivity<TViewModel> : BaseActivity where TViewModel : class, IMvxViewModel
+    {
+        public new TViewModel ViewModel
+        {
+            get { return (TViewModel)base.ViewModel; }
+            set { base.ViewModel = value; }
         }
     }
 }
