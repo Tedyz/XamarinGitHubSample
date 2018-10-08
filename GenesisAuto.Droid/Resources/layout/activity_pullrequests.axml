@@ -29,7 +29,7 @@
 			android:divider="@null"
 			android:dividerHeight="0dp"
 			local:MvxItemTemplate="@layout/item_pullrequest"
-			local:MvxBind="ItemsSource PullRequests"/>
+			local:MvxBind="ItemsSource PullRequests; ItemClick SelectPullRequest"/>
 	</android.support.v4.widget.SwipeRefreshLayout>
 
 

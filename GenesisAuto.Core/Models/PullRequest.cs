@@ -13,12 +13,15 @@ namespace GenesisAuto.Core.Models
         [JsonProperty(PropertyName = "body")]
         public string Description { get; set; }
 
+        [JsonProperty(PropertyName = "html_url")]
+        public string PageUrl { get; set; }
+
         [JsonProperty(PropertyName = "created_at")]
         public DateTime CreatedAt { get; set; }
 
         [JsonProperty(PropertyName = "user")]
         public Owner Owner { get; set; }
 
-        public string CreatedAtFormated => CreatedAt.ToString("dd/MM/YYYY");
+        public string CreatedAtFormated => CreatedAt.ToString("dd/MM/yyyy");
     }
 }

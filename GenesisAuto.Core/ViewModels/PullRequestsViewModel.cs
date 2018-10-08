@@ -1,4 +1,5 @@
 ﻿using GenesisAuto.Core.Models;
+using GenesisAuto.Core.Platform;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using System;
@@ -15,6 +16,13 @@ namespace GenesisAuto.Core.ViewModels
         private int Page { get; set; } = 1;
         private Task PullRequestTask { get; set; }
 
+        public IDevice DeviceService { get; set; }
+
+        public PullRequestsViewModel(IDevice device)
+        {
+            DeviceService = device;
+        }
+
         public override void Prepare(Repository parameter)
         {
             Repository = parameter;
@@ -29,13 +37,11 @@ namespace GenesisAuto.Core.ViewModels
                 Loading = true;
 
               
-                var response = await Apis.GitHub.GetPullRequests(Repository.FullName, Page);
+                var response = await Apis.GitHub.GetPullRequests(Repository.Owner.UserName, Repository.Name, Page);
 
-                var rep = response;
-
-                if (rep != null)
+                if (response != null)
                 {
-                    rep.ForEach((item) => { PullRequests.Add(item); });
+                    response.ForEach((item) => { PullRequests.Add(item); });
                     await RaisePropertyChanged(() => PullRequests);
                 }
             }
@@ -89,5 +95,17 @@ namespace GenesisAuto.Core.ViewModels
                 });
             }
         }
+
+        public virtual IMvxCommand SelectPullRequest
+        {
+            get
+            {
+                return new MvxCommand<PullRequest>((pr) =>
+                {
+                    DeviceService.OpenUrl(pr.PageUrl);
+                });
+            }
+        }
+
     }
 }

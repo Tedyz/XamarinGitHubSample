@@ -14,8 +14,8 @@ namespace GenesisAuto.Core.Services
         [Get("/search/repositories")]
         Task<ApiResponse<ResponseGitHubRepositories>> GetRepositories(string q, string type, string sort, int page);
 
-        [Get("/repos/{fullName}/pulls")]
-        Task<List<PullRequest>> GetPullRequests([AliasAs("fullName")] string fullName, int page, string state = "open");
+        [Get("/repos/{username}/{repo}/pulls")]
+        Task<List<PullRequest>> GetPullRequests([AliasAs("username")] string username, [AliasAs("repo")] string repo, int page, string state = "open");
     }
 
 }

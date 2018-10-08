@@ -18,7 +18,7 @@ namespace GenesisAuto.Droid.Views
     [Activity(Label = "Pull Requests")]
     public class PullRequestsActivity : BaseActivity<PullRequestsViewModel>
     {
-        protected override int ResourceLayoutId => Resource.Layout.drawer_layout;
+        protected override int ResourceLayoutId => Resource.Layout.activity_pullrequests;
 
         private SwipeRefreshLayout SwipeRefresh { get; set; }
         private SwipeRefreshLayout SwipeRefreshEmpty { get; set; }

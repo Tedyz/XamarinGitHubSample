@@ -57,7 +57,9 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomBindings\WebViewBinding.cs" />
     <Compile Include="CustomBindings\ImageUrlToLoadBinding.cs" />
+    <Compile Include="Platform\Device.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="Views\BaseActivity.cs" />
     <Compile Include="Views\HomeActivity.cs" />
