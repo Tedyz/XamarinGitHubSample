@@ -11,7 +11,7 @@ using Android.Support.Design.Widget;
 using Android.Support.V4.Widget;
 using Android.Support.V7.App;
 using Android.Views;
-using Android.Widget;
+using Android.Support.V7.Widget;
 using GenesisAuto.Core.ViewModels;
 using MvvmCross.Platforms.Android.Binding.Views;
 using MvvmCross.Platforms.Android.Views;
@@ -31,6 +31,7 @@ namespace GenesisAuto.Droid.Views
         private SwipeRefreshLayout Refresh { get; set; }
 
         private FloatingActionButton Fab { get; set; }
+        private SearchView Search { get; set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -39,6 +40,12 @@ namespace GenesisAuto.Droid.Views
             Title = Resources.GetString(Resource.String.title_home);
 
             MyDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+            Search = FindViewById<SearchView>(Resource.Id.search);
+            Refresh = FindViewById<SwipeRefreshLayout>(Resource.Id.refresh);
+            var refreshEmpty = FindViewById<SwipeRefreshLayout>(Resource.Id.refreshEmpty);
+            Fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
+
+
             MyToggle = new ActionBarDrawerToggle(this, MyDrawerLayout, Resource.String.open_drawer, Resource.String.close_drawer);
             MyDrawerLayout.AddDrawerListener(MyToggle);
             MyToggle.SyncState();
@@ -53,28 +60,61 @@ namespace GenesisAuto.Droid.Views
                 }
             };
 
-            Refresh = FindViewById<SwipeRefreshLayout>(Resource.Id.refresh);
+            
             Refresh.Refresh += (sender, e) =>
             {
                 ViewModel.RefreshSearch.Execute();
                 Refresh.Refreshing = false;
             };
 
-            Fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
+            
+            refreshEmpty.Refresh += (sender, e) =>
+            {
+                ViewModel.RefreshSearch.Execute();
+                refreshEmpty.Refreshing = false;
+            };
+            
+            Fab.Click += (sender, e) =>
+            {
+                ViewModel.SearchVisible = true;
+                ShowKeyboard(Search);
+            };
 
             ListViewRepositories.ScrollStateChanged += (sender, e) =>
             {
-                if (e.ScrollState == ScrollState.Idle)
+                if (e.ScrollState == Android.Widget.ScrollState.Idle)
                 {
                     Fab.Show();
                 }
                 else
                 {
                     Fab.Hide();
+                    ViewModel.SearchVisible = false;
                 }
             };
 
+            Search.SetIconifiedByDefault(false);
+            Search.QueryTextChange += (object sender, SearchView.QueryTextChangeEventArgs e) =>
+            {
+                if (string.IsNullOrEmpty(Search.Query) && ViewModel.ShowEmptyState)
+                {
+                    DoSearch();
+                }
+            };
+            Search.QueryTextSubmit += (object sender, SearchView.QueryTextSubmitEventArgs e) =>
+            {
+                DoSearch();
+            };
         }
+
+        private void DoSearch()
+        {
+            ViewModel.Search = Search.Query;
+            ViewModel.RefreshSearch.Execute();
+            ViewModel.SearchVisible = false;
+            HideKeyboard(Search);
+        }
+
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {

@@ -3,6 +3,7 @@
 	xmlns:local="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
+	android:animateLayoutChanges="true"
     android:layout_height="match_parent">
 	<include layout="@layout/toolbar" />
 
@@ -23,54 +24,53 @@
 			android:indeterminate="true"/>
 	</FrameLayout>
 
-	<android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/refresh"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
+	<android.support.v7.widget.SearchView
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+		local:MvxBind="Visible SearchVisible || ShowEmptyState"
+        android:layout_height="wrap_content" />
 
-		<RelativeLayout
+	<android.support.v4.widget.SwipeRefreshLayout 
+		android:id="@+id/refreshEmpty"
+		android:layout_width="match_parent"
+		local:MvxBind="Visible ShowEmptyState"
+		android:visibility="gone"
+		android:layout_height="match_parent">
+		<include layout="@layout/empty_state"/>
+	</android.support.v4.widget.SwipeRefreshLayout>
+
+
+	<android.support.design.widget.CoordinatorLayout
+			android:id="@+id/main_content"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+			
+		<android.support.v4.widget.SwipeRefreshLayout
+			android:id="@+id/refresh"
 			android:layout_height="match_parent"
 			android:layout_width="match_parent">
-
-			<FrameLayout 
-				android:id="@+id/progressContainer"
+			<MvxListView 
+				android:id="@+id/listRep"
+				android:layout_height="match_parent"
 				android:layout_width="match_parent"
-				local:MvxBind="Visible ShowEmptyState"
-				android:layout_height="match_parent">
-				<include layout="@layout/empty_state"/>
-			</FrameLayout>
+				android:divider="@null"
+				android:dividerHeight="0dp"
+				local:MvxItemTemplate="@layout/item_repositories"
+				local:MvxBind="ItemsSource Repositories"/>
+		</android.support.v4.widget.SwipeRefreshLayout>
 
-			<android.support.design.widget.CoordinatorLayout
-				android:id="@+id/main_content"
-				android:layout_width="match_parent"
-				android:layout_height="match_parent">
-			
-				<MvxListView 
-					android:id="@+id/listRep"
-					android:layout_height="match_parent"
-					android:layout_width="match_parent"
-					android:divider="@null"
-					android:dividerHeight="0dp"
-					local:MvxItemTemplate="@layout/item_repositories"
-					local:MvxBind="ItemsSource Repositories"/>
-
-				<android.support.design.widget.FloatingActionButton
-					android:id="@+id/fab"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_gravity="bottom|right"
-					android:layout_margin="16dp"
-					android:backgroundTint="@color/colorPrimary"
-					local:borderWidth="0dp"
-					android:tint="@android:color/white"
-					android:src="@drawable/abc_ic_search_api_material"
-					local:layout_anchor="@id/listRep"
-					local:layout_anchorGravity="bottom|right|end" />
-
-			</android.support.design.widget.CoordinatorLayout>
-		</RelativeLayout>
-			
-	</android.support.v4.widget.SwipeRefreshLayout>
-		
+		<android.support.design.widget.FloatingActionButton
+				android:id="@+id/fab"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="bottom|right"
+				android:layout_margin="16dp"
+				android:backgroundTint="@color/colorPrimary"
+				local:borderWidth="0dp"
+				android:tint="@android:color/white"
+				android:src="@drawable/abc_ic_search_api_material"
+				local:layout_anchor="@id/listRep"
+				local:layout_anchorGravity="bottom|right|end" />
+	</android.support.design.widget.CoordinatorLayout>
 
 </LinearLayout>

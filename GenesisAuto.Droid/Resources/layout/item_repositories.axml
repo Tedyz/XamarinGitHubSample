@@ -104,15 +104,16 @@
 			android:textAlignment="center"
 			android:textColor="@color/colorAccent"
 			android:textSize="13dp"
-			local:MvxBind="Text Name"
-			android:text="Repository Name"/>
+			local:MvxBind="Text Owner.UserName"
+			android:text="Text UserName"/>
 		<TextView 
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:textAlignment="center"
 			android:textColor="@color/description"
 			android:textSize="11dp"
-			android:text="Repository Name"/>
+			local:MvxBind="Text FullName"
+			android:text="Repository UserName"/>
 	</LinearLayout>
 
 </LinearLayout>

@@ -29,7 +29,14 @@ namespace GenesisAuto.Core.ViewModels
             try
             {
                 Loading = true;
-                var rep = await Apis.GitHub.GetRepositories("language:JavaScript", "stars", Page);
+
+                string q = "language:JavaScript";
+
+                if (!string.IsNullOrEmpty(Search))
+                {
+                    q = $"{Search}+{q}";
+                }
+                var rep = await Apis.GitHub.GetRepositories(q ,"Repositories", "stars", Page);
 
                 if (rep != null)
                 {
@@ -64,7 +71,28 @@ namespace GenesisAuto.Core.ViewModels
             }
         }
 
+        private string _search;
+        public string Search
+        {
+            get => _search;
+            set
+            {
+                _search = value;
+                RaisePropertyChanged(() => Search);
+            }
+        }
 
+        private bool _searchVisible;
+        public bool SearchVisible
+        {
+            get => _searchVisible;
+            set
+            {
+                _searchVisible = value;
+                RaisePropertyChanged(() => SearchVisible);
+            }
+        }
+        
         private ObservableCollection<Repositories> _repositories = new ObservableCollection<Repositories>();
         public ObservableCollection<Repositories> Repositories
         {

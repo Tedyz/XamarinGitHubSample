@@ -2,6 +2,9 @@
 using MvvmCross.Droid.Support.V7.AppCompat;
 using Android.Support.V7.Widget;
 using MvvmCross.ViewModels;
+using Android.Views;
+using Android.Views.InputMethods;
+using Android.Content;
 
 namespace GenesisAuto.Droid.Views
 {
@@ -43,6 +46,21 @@ namespace GenesisAuto.Droid.Views
                 SupportActionBar.SetDisplayHomeAsUpEnabled(true);
                 SupportActionBar.SetHomeButtonEnabled(true);
             }
+        }
+
+        public void ShowKeyboard(View pView)
+        {
+            pView.RequestFocus();
+
+            InputMethodManager inputMethodManager = Application.GetSystemService(Context.InputMethodService) as InputMethodManager;
+            inputMethodManager.ShowSoftInput(pView, ShowFlags.Forced);
+            inputMethodManager.ToggleSoftInput(ShowFlags.Forced, HideSoftInputFlags.ImplicitOnly);
+        }
+
+        public void HideKeyboard(View pView)
+        {
+            InputMethodManager inputMethodManager = Application.GetSystemService(Context.InputMethodService) as InputMethodManager;
+            inputMethodManager.HideSoftInputFromWindow(pView.WindowToken, HideSoftInputFlags.None);
         }
     }
 

@@ -9,5 +9,7 @@ namespace GenesisAuto.Core.Models
     {
         [JsonProperty(PropertyName = "avatar_url")]
         public string AvatarUrl { get; set; }
+        [JsonProperty(PropertyName = "login")]
+        public string UserName { get; set; }
     }
 }

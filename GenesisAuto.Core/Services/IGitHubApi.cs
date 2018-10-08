@@ -10,7 +10,7 @@ namespace GenesisAuto.Core.Services
     public interface IGitHubApi
     {
         [Get("/search/repositories")]
-        Task<ResponseGitHubRepositories> GetRepositories(string q, string sort, int page);
+        Task<ResponseGitHubRepositories> GetRepositories(string q, string type, string sort, int page);
 
         [Get("/repos/{fullName}/pulls")]
         Task<ResponseGitHubRepositories> GetPullRequests([AliasAs("fullName")] string fullName);

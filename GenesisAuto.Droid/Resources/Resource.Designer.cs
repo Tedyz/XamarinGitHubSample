@@ -6521,8 +6521,8 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f090039
 			public const int SYM = 2131296313;
 			
-			// aapt resource value: 0x7f0900a7
-			public const int action0 = 2131296423;
+			// aapt resource value: 0x7f0900a9
+			public const int action0 = 2131296425;
 			
 			// aapt resource value: 0x7f09007e
 			public const int action_bar = 2131296382;
@@ -6545,17 +6545,17 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f09005c
 			public const int action_bar_title = 2131296348;
 			
-			// aapt resource value: 0x7f0900a4
-			public const int action_container = 2131296420;
+			// aapt resource value: 0x7f0900a6
+			public const int action_container = 2131296422;
 			
 			// aapt resource value: 0x7f09007f
 			public const int action_context_bar = 2131296383;
 			
-			// aapt resource value: 0x7f0900ab
-			public const int action_divider = 2131296427;
+			// aapt resource value: 0x7f0900ad
+			public const int action_divider = 2131296429;
 			
-			// aapt resource value: 0x7f0900a5
-			public const int action_image = 2131296421;
+			// aapt resource value: 0x7f0900a7
+			public const int action_image = 2131296423;
 			
 			// aapt resource value: 0x7f090003
 			public const int action_menu_divider = 2131296259;
@@ -6572,11 +6572,11 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f09005e
 			public const int action_mode_close_button = 2131296350;
 			
-			// aapt resource value: 0x7f0900a6
-			public const int action_text = 2131296422;
+			// aapt resource value: 0x7f0900a8
+			public const int action_text = 2131296424;
 			
-			// aapt resource value: 0x7f0900b4
-			public const int actions = 2131296436;
+			// aapt resource value: 0x7f0900b6
+			public const int actions = 2131296438;
 			
 			// aapt resource value: 0x7f09005f
 			public const int activity_chooser_view_content = 2131296351;
@@ -6611,8 +6611,8 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f090065
 			public const int buttonPanel = 2131296357;
 			
-			// aapt resource value: 0x7f0900a8
-			public const int cancel_action = 2131296424;
+			// aapt resource value: 0x7f0900aa
+			public const int cancel_action = 2131296426;
 			
 			// aapt resource value: 0x7f090047
 			public const int center = 2131296327;
@@ -6626,8 +6626,8 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f090075
 			public const int checkbox = 2131296373;
 			
-			// aapt resource value: 0x7f0900b0
-			public const int chronometer = 2131296432;
+			// aapt resource value: 0x7f0900b2
+			public const int chronometer = 2131296434;
 			
 			// aapt resource value: 0x7f090050
 			public const int clip_horizontal = 2131296336;
@@ -6638,17 +6638,17 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f09003b
 			public const int collapseActionView = 2131296315;
 			
-			// aapt resource value: 0x7f090095
-			public const int container = 2131296405;
+			// aapt resource value: 0x7f090097
+			public const int container = 2131296407;
 			
 			// aapt resource value: 0x7f090068
 			public const int contentPanel = 2131296360;
 			
-			// aapt resource value: 0x7f0900a2
-			public const int content_frame = 2131296418;
+			// aapt resource value: 0x7f0900a4
+			public const int content_frame = 2131296420;
 			
-			// aapt resource value: 0x7f090096
-			public const int coordinator = 2131296406;
+			// aapt resource value: 0x7f090098
+			public const int coordinator = 2131296408;
 			
 			// aapt resource value: 0x7f09006f
 			public const int custom = 2131296367;
@@ -6662,26 +6662,26 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f090062
 			public const int default_activity_button = 2131296354;
 			
-			// aapt resource value: 0x7f090098
-			public const int design_bottom_sheet = 2131296408;
+			// aapt resource value: 0x7f09009a
+			public const int design_bottom_sheet = 2131296410;
+			
+			// aapt resource value: 0x7f0900a1
+			public const int design_menu_item_action_area = 2131296417;
+			
+			// aapt resource value: 0x7f0900a0
+			public const int design_menu_item_action_area_stub = 2131296416;
 			
 			// aapt resource value: 0x7f09009f
-			public const int design_menu_item_action_area = 2131296415;
+			public const int design_menu_item_text = 2131296415;
 			
 			// aapt resource value: 0x7f09009e
-			public const int design_menu_item_action_area_stub = 2131296414;
-			
-			// aapt resource value: 0x7f09009d
-			public const int design_menu_item_text = 2131296413;
-			
-			// aapt resource value: 0x7f09009c
-			public const int design_navigation_view = 2131296412;
+			public const int design_navigation_view = 2131296414;
 			
 			// aapt resource value: 0x7f090022
 			public const int disableHome = 2131296290;
 			
-			// aapt resource value: 0x7f0900a1
-			public const int drawer_layout = 2131296417;
+			// aapt resource value: 0x7f0900a3
+			public const int drawer_layout = 2131296419;
 			
 			// aapt resource value: 0x7f090080
 			public const int edit_query = 2131296384;
@@ -6689,8 +6689,8 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f090032
 			public const int end = 2131296306;
 			
-			// aapt resource value: 0x7f0900b6
-			public const int end_padder = 2131296438;
+			// aapt resource value: 0x7f0900b8
+			public const int end_padder = 2131296440;
 			
 			// aapt resource value: 0x7f090041
 			public const int enterAlways = 2131296321;
@@ -6707,8 +6707,8 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f090074
 			public const int expanded_menu = 2131296372;
 			
-			// aapt resource value: 0x7f090092
-			public const int fab = 2131296402;
+			// aapt resource value: 0x7f090094
+			public const int fab = 2131296404;
 			
 			// aapt resource value: 0x7f090052
 			public const int fill = 2131296338;
@@ -6737,8 +6737,8 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f090064
 			public const int icon = 2131296356;
 			
-			// aapt resource value: 0x7f0900b5
-			public const int icon_group = 2131296437;
+			// aapt resource value: 0x7f0900b7
+			public const int icon_group = 2131296439;
 			
 			// aapt resource value: 0x7f09003c
 			public const int ifRoom = 2131296316;
@@ -6746,8 +6746,8 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f090061
 			public const int image = 2131296353;
 			
-			// aapt resource value: 0x7f0900b1
-			public const int info = 2131296433;
+			// aapt resource value: 0x7f0900b3
+			public const int info = 2131296435;
 			
 			// aapt resource value: 0x7f09005b
 			public const int italic = 2131296347;
@@ -6755,8 +6755,8 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f090000
 			public const int item_touch_helper_previous_elevation = 2131296256;
 			
-			// aapt resource value: 0x7f090094
-			public const int largeLabel = 2131296404;
+			// aapt resource value: 0x7f090096
+			public const int largeLabel = 2131296406;
 			
 			// aapt resource value: 0x7f09004b
 			public const int left = 2131296331;
@@ -6770,23 +6770,23 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f09001f
 			public const int listMode = 2131296287;
 			
-			// aapt resource value: 0x7f090091
-			public const int listRep = 2131296401;
+			// aapt resource value: 0x7f090093
+			public const int listRep = 2131296403;
 			
 			// aapt resource value: 0x7f090063
 			public const int list_item = 2131296355;
 			
-			// aapt resource value: 0x7f090090
-			public const int main_content = 2131296400;
+			// aapt resource value: 0x7f090091
+			public const int main_content = 2131296401;
+			
+			// aapt resource value: 0x7f0900bc
+			public const int masked = 2131296444;
+			
+			// aapt resource value: 0x7f0900ac
+			public const int media_actions = 2131296428;
 			
 			// aapt resource value: 0x7f0900ba
-			public const int masked = 2131296442;
-			
-			// aapt resource value: 0x7f0900aa
-			public const int media_actions = 2131296426;
-			
-			// aapt resource value: 0x7f0900b8
-			public const int message = 2131296440;
+			public const int message = 2131296442;
 			
 			// aapt resource value: 0x7f090033
 			public const int middle = 2131296307;
@@ -6797,11 +6797,11 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f09002a
 			public const int multiply = 2131296298;
 			
-			// aapt resource value: 0x7f0900a3
-			public const int nav_view = 2131296419;
+			// aapt resource value: 0x7f0900a5
+			public const int nav_view = 2131296421;
 			
-			// aapt resource value: 0x7f09009b
-			public const int navigation_header_container = 2131296411;
+			// aapt resource value: 0x7f09009d
+			public const int navigation_header_container = 2131296413;
 			
 			// aapt resource value: 0x7f09003d
 			public const int never = 2131296317;
@@ -6812,14 +6812,14 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f090020
 			public const int normal = 2131296288;
 			
-			// aapt resource value: 0x7f0900b3
-			public const int notification_background = 2131296435;
+			// aapt resource value: 0x7f0900b5
+			public const int notification_background = 2131296437;
 			
-			// aapt resource value: 0x7f0900ad
-			public const int notification_main_column = 2131296429;
+			// aapt resource value: 0x7f0900af
+			public const int notification_main_column = 2131296431;
 			
-			// aapt resource value: 0x7f0900ac
-			public const int notification_main_column_container = 2131296428;
+			// aapt resource value: 0x7f0900ae
+			public const int notification_main_column_container = 2131296430;
 			
 			// aapt resource value: 0x7f09004e
 			public const int parallax = 2131296334;
@@ -6848,17 +6848,20 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f090077
 			public const int radio = 2131296375;
 			
-			// aapt resource value: 0x7f09008f
-			public const int refresh = 2131296399;
+			// aapt resource value: 0x7f090092
+			public const int refresh = 2131296402;
+			
+			// aapt resource value: 0x7f090090
+			public const int refreshEmpty = 2131296400;
 			
 			// aapt resource value: 0x7f09004c
 			public const int right = 2131296332;
 			
-			// aapt resource value: 0x7f0900b2
-			public const int right_icon = 2131296434;
+			// aapt resource value: 0x7f0900b4
+			public const int right_icon = 2131296436;
 			
-			// aapt resource value: 0x7f0900ae
-			public const int right_side = 2131296430;
+			// aapt resource value: 0x7f0900b0
+			public const int right_side = 2131296432;
 			
 			// aapt resource value: 0x7f09000c
 			public const int save_image_matrix = 2131296268;
@@ -6886,6 +6889,9 @@ namespace GenesisAuto.Droid
 			
 			// aapt resource value: 0x7f090057
 			public const int scrollable = 2131296343;
+			
+			// aapt resource value: 0x7f09008f
+			public const int search = 2131296399;
 			
 			// aapt resource value: 0x7f090082
 			public const int search_badge = 2131296386;
@@ -6932,14 +6938,14 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f090027
 			public const int showTitle = 2131296295;
 			
-			// aapt resource value: 0x7f090093
-			public const int smallLabel = 2131296403;
+			// aapt resource value: 0x7f090095
+			public const int smallLabel = 2131296405;
 			
-			// aapt resource value: 0x7f09009a
-			public const int snackbar_action = 2131296410;
+			// aapt resource value: 0x7f09009c
+			public const int snackbar_action = 2131296412;
 			
-			// aapt resource value: 0x7f090099
-			public const int snackbar_text = 2131296409;
+			// aapt resource value: 0x7f09009b
+			public const int snackbar_text = 2131296411;
 			
 			// aapt resource value: 0x7f090045
 			public const int snap = 2131296325;
@@ -6962,8 +6968,8 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f09004d
 			public const int start = 2131296333;
 			
-			// aapt resource value: 0x7f0900a9
-			public const int status_bar_latest_event_content = 2131296425;
+			// aapt resource value: 0x7f0900ab
+			public const int status_bar_latest_event_content = 2131296427;
 			
 			// aapt resource value: 0x7f090078
 			public const int submenuarrow = 2131296376;
@@ -6989,8 +6995,8 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f09006b
 			public const int textSpacerNoTitle = 2131296363;
 			
-			// aapt resource value: 0x7f0900a0
-			public const int text_input_password_toggle = 2131296416;
+			// aapt resource value: 0x7f0900a2
+			public const int text_input_password_toggle = 2131296418;
 			
 			// aapt resource value: 0x7f090014
 			public const int textinput_counter = 2131296276;
@@ -6998,8 +7004,8 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f090015
 			public const int textinput_error = 2131296277;
 			
-			// aapt resource value: 0x7f0900af
-			public const int time = 2131296431;
+			// aapt resource value: 0x7f0900b1
+			public const int time = 2131296433;
 			
 			// aapt resource value: 0x7f09001c
 			public const int title = 2131296284;
@@ -7010,8 +7016,8 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f090071
 			public const int title_template = 2131296369;
 			
-			// aapt resource value: 0x7f0900b7
-			public const int toolbar = 2131296439;
+			// aapt resource value: 0x7f0900b9
+			public const int toolbar = 2131296441;
 			
 			// aapt resource value: 0x7f090040
 			public const int top = 2131296320;
@@ -7019,8 +7025,8 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f090070
 			public const int topPanel = 2131296368;
 			
-			// aapt resource value: 0x7f090097
-			public const int touch_outside = 2131296407;
+			// aapt resource value: 0x7f090099
+			public const int touch_outside = 2131296409;
 			
 			// aapt resource value: 0x7f09000f
 			public const int transition_current_scene = 2131296271;
@@ -7049,8 +7055,8 @@ namespace GenesisAuto.Droid
 			// aapt resource value: 0x7f090016
 			public const int view_offset_helper = 2131296278;
 			
-			// aapt resource value: 0x7f0900b9
-			public const int visible = 2131296441;
+			// aapt resource value: 0x7f0900bb
+			public const int visible = 2131296443;
 			
 			// aapt resource value: 0x7f09003e
 			public const int withText = 2131296318;
