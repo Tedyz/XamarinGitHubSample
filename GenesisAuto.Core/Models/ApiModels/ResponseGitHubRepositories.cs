@@ -14,6 +14,6 @@ namespace GenesisAuto.Core.Models.Api
         public string IncompleteResults { get; set; }
 
         [JsonProperty(PropertyName = "items")]
-        public List<Repositories> Items { get; set; }
+        public List<Repository> Items { get; set; }
     }
 }

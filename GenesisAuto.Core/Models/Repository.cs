@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GenesisAuto.Core.Models
 {
-    public class Repositories
+    public class Repository
     {
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }

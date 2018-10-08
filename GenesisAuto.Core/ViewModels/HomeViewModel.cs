@@ -14,16 +14,17 @@ using System.Web;
 
 namespace GenesisAuto.Core.ViewModels
 {
-    public class HomeViewModel : BaseViewModel
+    public class HomeViewModel : BaseViewModel<object,object>
     {
+        private int Page { get; set; } = 1;
+        private Task RepositoriesTask { get; set; }
 
         public override Task Initialize()
         {
             LoadMore(1);
             return base.Initialize();
         }
-
-        private int Page { get; set; } = 1;
+        
 
         private async Task GetRepositories()
         {
@@ -56,8 +57,7 @@ namespace GenesisAuto.Core.ViewModels
             ShowEmptyState = Repositories.Count == 0;
         }
 
-        SemaphoreSlim filterSemaphore = new SemaphoreSlim(1, 1);
-        private Task RepositoriesTask { get; set; }
+        
         public void LoadMore(int? page)
         {
             try
@@ -96,8 +96,8 @@ namespace GenesisAuto.Core.ViewModels
             }
         }
         
-        private ObservableCollection<Repositories> _repositories = new ObservableCollection<Repositories>();
-        public ObservableCollection<Repositories> Repositories
+        private ObservableCollection<Repository> _repositories = new ObservableCollection<Repository>();
+        public ObservableCollection<Repository> Repositories
         {
             get => _repositories;
             set
@@ -119,5 +119,18 @@ namespace GenesisAuto.Core.ViewModels
                 });
             }
         }
+
+        public virtual IMvxCommand SelectRepository
+        {
+            get
+            {
+                return new MvxCommand<Repository>(async (rep) =>
+                {
+                    await NavigationService.Navigate<PullRequestsViewModel, Repository>(rep);
+                });
+            }
+        }
+
+        
     }
 }

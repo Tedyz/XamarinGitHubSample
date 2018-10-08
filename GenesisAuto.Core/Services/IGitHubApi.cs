@@ -1,4 +1,5 @@
-﻿using GenesisAuto.Core.Models.Api;
+﻿using GenesisAuto.Core.Models;
+using GenesisAuto.Core.Models.Api;
 using Refit;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace GenesisAuto.Core.Services
         Task<ApiResponse<ResponseGitHubRepositories>> GetRepositories(string q, string type, string sort, int page);
 
         [Get("/repos/{fullName}/pulls")]
-        Task<ResponseGitHubRepositories> GetPullRequests([AliasAs("fullName")] string fullName);
+        Task<List<PullRequest>> GetPullRequests([AliasAs("fullName")] string fullName, int page, string state = "open");
     }
 
 }

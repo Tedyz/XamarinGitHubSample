@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+	<include layout="@layout/toolbar" />
+
+	<include layout="@layout/loading_bar" />
+
+	<android.support.v4.widget.SwipeRefreshLayout 
+		android:id="@+id/refreshEmpty"
+		android:layout_width="match_parent"
+		local:MvxBind="Visible ShowEmptyState"
+		android:visibility="gone"
+		android:layout_height="match_parent">
+		<include layout="@layout/empty_state"/>
+	</android.support.v4.widget.SwipeRefreshLayout>
+
+			
+	<android.support.v4.widget.SwipeRefreshLayout
+		android:id="@+id/refresh"
+		android:layout_height="match_parent"
+		android:layout_width="match_parent">
+		<MvxListView 
+			android:id="@+id/listRep"
+			android:layout_height="match_parent"
+			android:layout_width="match_parent"
+			android:divider="@null"
+			android:dividerHeight="0dp"
+			local:MvxItemTemplate="@layout/item_pullrequest"
+			local:MvxBind="ItemsSource PullRequests"/>
+	</android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

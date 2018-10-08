@@ -1,5 +1,6 @@
 ﻿using GenesisAuto.Core.Services;
 using MvvmCross;
+using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -7,13 +8,16 @@ using System.Text;
 
 namespace GenesisAuto.Core.ViewModels
 {
-    public class BaseViewModel : MvxViewModel
+    public class BaseViewModel<TParameter, TResult> : MvxViewModel<TParameter, TResult>
     {
+        
         protected IApis Apis { get; set; }
 
+        protected readonly IMvxNavigationService NavigationService;
         public BaseViewModel()
         {
 #pragma warning disable CS0618 // Type or member is obsolete
+            NavigationService = Mvx.Resolve<IMvxNavigationService>();
             Apis = Mvx.Resolve<IApis>();
 #pragma warning restore CS0618 // Type or member is obsolete
         }
@@ -62,6 +66,11 @@ namespace GenesisAuto.Core.ViewModels
                 _emptySuggestion = value;
                 RaisePropertyChanged(() => EmptySuggestion);
             }
+        }
+
+        public override void Prepare(TParameter parameter)
+        {
+
         }
     }
 }
