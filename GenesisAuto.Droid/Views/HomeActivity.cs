@@ -28,7 +28,8 @@ namespace GenesisAuto.Droid.Views
 
         private MvxListView ListViewRepositories { get; set; }
 
-        private SwipeRefreshLayout Refresh { get; set; }
+        private SwipeRefreshLayout SwipeRefresh { get; set; }
+        private SwipeRefreshLayout SwipeRefreshEmpty { get; set; }
 
         private FloatingActionButton Fab { get; set; }
         private SearchView Search { get; set; }
@@ -41,16 +42,16 @@ namespace GenesisAuto.Droid.Views
 
             MyDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             Search = FindViewById<SearchView>(Resource.Id.search);
-            Refresh = FindViewById<SwipeRefreshLayout>(Resource.Id.refresh);
-            var refreshEmpty = FindViewById<SwipeRefreshLayout>(Resource.Id.refreshEmpty);
+            SwipeRefresh = FindViewById<SwipeRefreshLayout>(Resource.Id.refresh);
+            SwipeRefreshEmpty = FindViewById<SwipeRefreshLayout>(Resource.Id.refreshEmpty);
             Fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
-
+            ListViewRepositories = FindViewById<MvxListView>(Resource.Id.listRep);
 
             MyToggle = new ActionBarDrawerToggle(this, MyDrawerLayout, Resource.String.open_drawer, Resource.String.close_drawer);
             MyDrawerLayout.AddDrawerListener(MyToggle);
             MyToggle.SyncState();
 
-            ListViewRepositories = FindViewById<MvxListView>(Resource.Id.listRep);
+            
 
             ListViewRepositories.ViewTreeObserver.ScrollChanged += (sender, e) =>
             {
@@ -59,25 +60,22 @@ namespace GenesisAuto.Droid.Views
                     ViewModel.LoadMore(null);
                 }
             };
-
-            
-            Refresh.Refresh += (sender, e) =>
-            {
-                ViewModel.RefreshSearch.Execute();
-                Refresh.Refreshing = false;
-            };
-
-            
-            refreshEmpty.Refresh += (sender, e) =>
-            {
-                ViewModel.RefreshSearch.Execute();
-                refreshEmpty.Refreshing = false;
-            };
+        
+            SwipeRefresh.Refresh += Refresh;
+            SwipeRefreshEmpty.Refresh += Refresh;
             
             Fab.Click += (sender, e) =>
             {
-                ViewModel.SearchVisible = true;
-                ShowKeyboard(Search);
+                if(ViewModel.SearchVisible)
+                {
+                    DoSearch();
+                }
+                else
+                {
+                    ViewModel.SearchVisible = true;
+                    ShowKeyboard(Search);
+                }
+                
             };
 
             ListViewRepositories.ScrollStateChanged += (sender, e) =>
@@ -93,12 +91,15 @@ namespace GenesisAuto.Droid.Views
                 }
             };
 
+
+            
             Search.SetIconifiedByDefault(false);
+
             Search.QueryTextChange += (object sender, SearchView.QueryTextChangeEventArgs e) =>
             {
-                if (string.IsNullOrEmpty(Search.Query) && ViewModel.ShowEmptyState)
+                if(string.IsNullOrEmpty(Search.Query))
                 {
-                    DoSearch();
+                    DoSearch(false);
                 }
             };
             Search.QueryTextSubmit += (object sender, SearchView.QueryTextSubmitEventArgs e) =>
@@ -106,13 +107,24 @@ namespace GenesisAuto.Droid.Views
                 DoSearch();
             };
         }
+        
+        private void Refresh(object sender, EventArgs e)
+        {
+            ViewModel.RefreshSearch.Execute();
+            SwipeRefreshEmpty.Refreshing = false;
+            SwipeRefresh.Refreshing = false;
+        }
 
-        private void DoSearch()
+        private void DoSearch(bool hideSearch = true)
         {
             ViewModel.Search = Search.Query;
             ViewModel.RefreshSearch.Execute();
-            ViewModel.SearchVisible = false;
-            HideKeyboard(Search);
+
+            if(hideSearch)
+            {
+                ViewModel.SearchVisible = false;
+                HideKeyboard(Search);
+            }
         }
 
 
