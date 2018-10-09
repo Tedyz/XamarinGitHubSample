@@ -15,6 +15,7 @@ using Android.Support.V7.Widget;
 using GenesisAuto.Core.ViewModels;
 using MvvmCross.Platforms.Android.Binding.Views;
 using MvvmCross.Platforms.Android.Views;
+using Android.Support.V4.View;
 
 namespace GenesisAuto.Droid.Views
 {
@@ -127,6 +128,17 @@ namespace GenesisAuto.Droid.Views
             }
         }
 
+        public override void OnBackPressed()
+        {
+            if(MyDrawerLayout.IsDrawerOpen(GravityCompat.Start))
+            {
+                MyDrawerLayout.CloseDrawer(GravityCompat.Start);
+            }
+            else
+            {
+                base.OnBackPressed();
+            }
+        }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
