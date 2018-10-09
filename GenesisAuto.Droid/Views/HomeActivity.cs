@@ -18,7 +18,7 @@ using MvvmCross.Platforms.Android.Views;
 
 namespace GenesisAuto.Droid.Views
 {
-    [Activity(Label = "HomeActivity", MainLauncher = true) ]
+    [Activity(Label = "GitHub Awesome", Theme = "@style/AppTheme") ]
     public class HomeActivity : BaseActivity<HomeViewModel>
     {
         protected override int ResourceLayoutId => Resource.Layout.drawer_layout;
