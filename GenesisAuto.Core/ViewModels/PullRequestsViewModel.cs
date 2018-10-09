@@ -12,7 +12,7 @@ namespace GenesisAuto.Core.ViewModels
 {
     public class PullRequestsViewModel : BaseViewModel<Repository,object>
     {
-        private Repository Repository { get; set; }
+        public Repository Repository { get; set; }
         private int Page { get; set; } = 1;
         private Task PullRequestTask { get; set; }
 

@@ -41,7 +41,8 @@ namespace GenesisAuto.Droid.Views
                     ViewModel.LoadMore(null);
                 }
             };
-            // Create your application here
+
+            Title = ViewModel.Repository.Name;
         }
 
         private void Refresh(object sender, EventArgs e)
