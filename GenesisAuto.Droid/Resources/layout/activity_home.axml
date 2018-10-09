@@ -26,9 +26,9 @@
 
 
 	<android.support.design.widget.CoordinatorLayout
-			android:id="@+id/main_content"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent">
+		android:id="@+id/main_content"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
 			
 		<android.support.v4.widget.SwipeRefreshLayout
 			android:id="@+id/refresh"
@@ -45,17 +45,17 @@
 		</android.support.v4.widget.SwipeRefreshLayout>
 
 		<android.support.design.widget.FloatingActionButton
-				android:id="@+id/fab"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="bottom|right"
-				android:layout_margin="16dp"
-				android:backgroundTint="@color/colorPrimary"
-				local:borderWidth="0dp"
-				android:tint="@android:color/white"
-				android:src="@drawable/abc_ic_search_api_material"
-				local:layout_anchor="@id/listRep"
-				local:layout_anchorGravity="bottom|right|end" />
+			android:id="@+id/fab"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="bottom|right"
+			android:layout_margin="16dp"
+			android:backgroundTint="@color/colorPrimary"
+			local:borderWidth="0dp"
+			android:tint="@android:color/white"
+			android:src="@drawable/abc_ic_search_api_material"
+			local:layout_anchor="@id/listRep"
+			local:layout_anchorGravity="bottom|right|end" />
 	</android.support.design.widget.CoordinatorLayout>
 
 </LinearLayout>

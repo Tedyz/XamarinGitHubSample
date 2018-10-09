@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Webkit;
+﻿using Android.Webkit;
 using Android.Widget;
 using GenesisAuto.Core;
 using GenesisAuto.Core.Platform;
@@ -17,7 +7,6 @@ using GenesisAuto.Droid.Platform;
 using MvvmCross;
 using MvvmCross.Binding.Bindings.Target.Construction;
 using MvvmCross.Platforms.Android.Core;
-using MvvmCross.ViewModels;
 using Square.Picasso;
 
 namespace GenesisAuto.Droid
@@ -30,7 +19,9 @@ namespace GenesisAuto.Droid
         {
             base.InitializeFirstChance();
 
+#pragma warning disable CS0618 // Type or member is obsolete
             Mvx.RegisterSingleton<IDevice>(new Device());
+#pragma warning restore CS0618 // Type or member is obsolete
         }
         protected override void FillTargetFactories(IMvxTargetBindingFactoryRegistry registry)
         {

@@ -1,20 +1,12 @@
 ﻿using GenesisAuto.Core.Models;
-using GenesisAuto.Core.Models.Api;
-using GenesisAuto.Core.Services;
 using MvvmCross.Commands;
-using MvvmCross.ViewModels;
-using Refit;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace GenesisAuto.Core.ViewModels
 {
-    public class HomeViewModel : BaseViewModel<object,object>
+    public class HomeViewModel : BaseViewModel<object, object>
     {
         private int Page { get; set; } = 1;
         private Task RepositoriesTask { get; set; }
@@ -25,7 +17,6 @@ namespace GenesisAuto.Core.ViewModels
             LoadMore(1);
             return base.Initialize();
         }
-        
 
         private async Task GetRepositories()
         {
@@ -39,14 +30,15 @@ namespace GenesisAuto.Core.ViewModels
                 {
                     q = $"{Search}+in:name+{q}";
                 }
-                var response = await Apis.GitHub.GetRepositories(q,"Repositories", "stars", Page);
+                var response = await Apis.GitHub.GetRepositories(q, "Repositories", "stars", Page);
 
                 var rep = response.Content;
 
                 if (rep != null)
                 {
-                    rep.Items.ForEach((item) => {
-                        if(Repositories.Count <= RepositoriesListLimit)
+                    rep.Items.ForEach((item) =>
+                    {
+                        if (Repositories.Count <= RepositoriesListLimit)
                         {
                             Repositories.Add(item);
                         }
@@ -63,18 +55,18 @@ namespace GenesisAuto.Core.ViewModels
             ShowEmptyState = Repositories.Count == 0;
         }
 
-        
+
         public void LoadMore(int? page)
         {
             try
             {
-                if (Repositories.Count <= RepositoriesListLimit && (RepositoriesTask == null || RepositoriesTask.IsCompleted) )
+                if (Repositories.Count <= RepositoriesListLimit && (RepositoriesTask == null || RepositoriesTask.IsCompleted))
                 {
                     Page = page.HasValue ? page.Value : Page + 1;
                     RepositoriesTask = GetRepositories();
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
@@ -101,7 +93,7 @@ namespace GenesisAuto.Core.ViewModels
                 RaisePropertyChanged(() => SearchVisible);
             }
         }
-        
+
         private ObservableCollection<Repository> _repositories = new ObservableCollection<Repository>();
         public ObservableCollection<Repository> Repositories
         {
@@ -117,12 +109,12 @@ namespace GenesisAuto.Core.ViewModels
         {
             get
             {
-                return new MvxCommand( () =>
-                {
-                    Page = 1;
-                    Repositories.Clear();
-                    LoadMore(1);
-                });
+                return new MvxCommand(() =>
+               {
+                   Page = 1;
+                   Repositories.Clear();
+                   LoadMore(1);
+               });
             }
         }
 
@@ -137,6 +129,6 @@ namespace GenesisAuto.Core.ViewModels
             }
         }
 
-        
+
     }
 }

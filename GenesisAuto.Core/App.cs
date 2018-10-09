@@ -1,12 +1,7 @@
 ﻿using GenesisAuto.Core.Services;
 using GenesisAuto.Core.ViewModels;
 using MvvmCross;
-using MvvmCross.Plugin;
 using MvvmCross.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GenesisAuto.Core
 {
@@ -14,7 +9,9 @@ namespace GenesisAuto.Core
     {
         public override void Initialize()
         {
+#pragma warning disable CS0618 // Type or member is obsolete
             Mvx.ConstructAndRegisterSingleton<IApis, Apis>();
+#pragma warning restore CS0618 // Type or member is obsolete
 
             RegisterAppStart<HomeViewModel>();
         }

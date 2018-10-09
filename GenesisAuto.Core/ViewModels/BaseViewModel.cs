@@ -33,8 +33,7 @@ namespace GenesisAuto.Core.ViewModels
                 RaisePropertyChanged(() => ShowEmptyState);
             }
         }
-
-
+        
         private bool _showEmptyState = false;
         public bool ShowEmptyState
         {

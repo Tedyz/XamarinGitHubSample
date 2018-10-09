@@ -1,10 +1,7 @@
 ﻿using GenesisAuto.Core.Util;
-using Newtonsoft.Json;
 using Refit;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 
 namespace GenesisAuto.Core.Services
 {
