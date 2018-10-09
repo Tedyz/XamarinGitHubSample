@@ -18,6 +18,7 @@ namespace GenesisAuto.Core.ViewModels
     {
         private int Page { get; set; } = 1;
         private Task RepositoriesTask { get; set; }
+        private int RepositoriesListLimit { get; set; } = 999;
 
         public override Task Initialize()
         {
@@ -44,7 +45,12 @@ namespace GenesisAuto.Core.ViewModels
 
                 if (rep != null)
                 {
-                    rep.Items.ForEach((item) => { Repositories.Add(item); });
+                    rep.Items.ForEach((item) => {
+                        if(Repositories.Count <= RepositoriesListLimit)
+                        {
+                            Repositories.Add(item);
+                        }
+                    });
                     await RaisePropertyChanged(() => Repositories);
                 }
             }
@@ -62,7 +68,7 @@ namespace GenesisAuto.Core.ViewModels
         {
             try
             {
-                if (RepositoriesTask == null || RepositoriesTask.IsCompleted)
+                if (Repositories.Count <= RepositoriesListLimit && (RepositoriesTask == null || RepositoriesTask.IsCompleted) )
                 {
                     Page = page.HasValue ? page.Value : Page + 1;
                     RepositoriesTask = GetRepositories();
