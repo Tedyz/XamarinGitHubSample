@@ -1,7 +1,11 @@
 ﻿using ArcTouch.Core.Models;
+using ArcTouch.Core.Models.Api;
 using MvvmCross.Commands;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ArcTouch.Core.ViewModels
@@ -11,29 +15,52 @@ namespace ArcTouch.Core.ViewModels
         private int Page { get; set; } = 1;
         private Task MoviesTask { get; set; }
 
-        public override Task Initialize()
+        private List<Genre> Genres { get; set; } = new List<Genre>();
+        
+        public async override Task Initialize()
         {
+            await base.Initialize();
+
+            await GetGenres();
+
             LoadMore(1);
-            return base.Initialize();
+
+           
         }
 
-        private async Task GetMovies()
+        
+        public async Task GetGenres()
+        {
+            var response = await Apis.IMDBApi.GetGenres(Apis.IMDBApiKey);
+            if (response != null && Genres.Count == 0)
+            {
+                Genres.AddRange(response.Genres);
+            }
+        }
+
+        public async Task GetMovies()
         {
             try
             {
                 Loading = true;
 
-                if(Search == null)
-                    Search = "Ring";
-                
-                var response = await Apis.IMDBApi.SearchMovies(Apis.IMDBApiKey, Page, Search);
-
-                var rep = response.Content;
-
-                if (rep != null)
+                Refit.ApiResponse<ResponseIMDBMoviesList> response;
+                if (string.IsNullOrEmpty(Search))
                 {
-                    rep.Results.ForEach((item) =>
+                    response = await Apis.IMDBApi.GetUpcomingMovies(Apis.IMDBApiKey, Page);
+                }
+                else
+                {
+                    response = await Apis.IMDBApi.SearchMovies(Apis.IMDBApiKey, Page, Search);
+                }
+                
+                var mov = response.Content;
+
+                if (mov != null)
+                {
+                    mov.Results.ForEach((item) =>
                     {
+                       item.Genres = String.Join(", ", Genres.Where(x => item.GenreIds.Contains(x.Id)).Select(x => x.Name));
                        Movies.Add(item);
                     });
                     await RaisePropertyChanged(() => Movies);
@@ -87,8 +114,8 @@ namespace ArcTouch.Core.ViewModels
             }
         }
 
-        private ObservableCollection<MoviesResponse> _movies = new ObservableCollection<MoviesResponse>();
-        public ObservableCollection<MoviesResponse> Movies
+        private ObservableCollection<MovieItem> _movies = new ObservableCollection<MovieItem>();
+        public ObservableCollection<MovieItem> Movies
         {
             get => _movies;
             set
@@ -102,7 +129,7 @@ namespace ArcTouch.Core.ViewModels
         {
             get
             {
-                return new MvxCommand(() =>
+                return new MvxCommand(async () =>
                {
                    Page = 1;
                    Movies.Clear();
@@ -115,9 +142,9 @@ namespace ArcTouch.Core.ViewModels
         {
             get
             {
-                return new MvxCommand<MoviesResponse>(async (rep) =>
+                return new MvxCommand<MovieItem>(async (mov) =>
                 {
-                    //await NavigationService.Navigate<PullRequestsViewModel, Repository>(rep);
+                    await NavigationService.Navigate<MovieViewModel, MovieItem>(mov);
                 });
             }
         }
