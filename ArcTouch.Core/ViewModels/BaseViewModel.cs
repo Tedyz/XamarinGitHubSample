@@ -16,10 +16,8 @@ namespace ArcTouch.Core.ViewModels
         protected readonly IMvxNavigationService NavigationService;
         public BaseViewModel()
         {
-#pragma warning disable CS0618 // Type or member is obsolete
-            NavigationService = Mvx.Resolve<IMvxNavigationService>();
-            Apis = Mvx.Resolve<IApis>();
-#pragma warning restore CS0618 // Type or member is obsolete
+            NavigationService = Mvx.IoCProvider.Resolve<IMvxNavigationService>();
+            Apis = Mvx.IoCProvider.Resolve<IApis>();
         }
 
         private bool _loading = false;
