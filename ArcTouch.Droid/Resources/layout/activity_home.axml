@@ -41,7 +41,7 @@
 				android:divider="@null"
 				android:dividerHeight="0dp"
 				local:MvxItemTemplate="@layout/item_repository"
-				local:MvxBind="ItemsSource Repositories; ItemClick SelectRepository"/>
+				local:MvxBind="ItemsSource Movies; ItemClick SelectMovie"/>
 		</android.support.v4.widget.SwipeRefreshLayout>
 
 		<android.support.design.widget.FloatingActionButton

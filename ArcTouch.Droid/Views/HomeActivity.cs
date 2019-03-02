@@ -27,7 +27,7 @@ namespace ArcTouch.Droid.Views
         private DrawerLayout MyDrawerLayout { get; set; }
         private ActionBarDrawerToggle MyToggle { get; set; }
 
-        private MvxListView ListViewRepositories { get; set; }
+        private MvxListView ListViewMovies { get; set; }
 
         private SwipeRefreshLayout SwipeRefresh { get; set; }
         private SwipeRefreshLayout SwipeRefreshEmpty { get; set; }
@@ -46,7 +46,7 @@ namespace ArcTouch.Droid.Views
             SwipeRefresh = FindViewById<SwipeRefreshLayout>(Resource.Id.refresh);
             SwipeRefreshEmpty = FindViewById<SwipeRefreshLayout>(Resource.Id.refreshEmpty);
             Fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
-            ListViewRepositories = FindViewById<MvxListView>(Resource.Id.listRep);
+            ListViewMovies = FindViewById<MvxListView>(Resource.Id.listRep);
 
             MyToggle = new ActionBarDrawerToggle(this, MyDrawerLayout, Resource.String.open_drawer, Resource.String.close_drawer);
             MyDrawerLayout.AddDrawerListener(MyToggle);
@@ -54,9 +54,9 @@ namespace ArcTouch.Droid.Views
 
             
 
-            ListViewRepositories.ViewTreeObserver.ScrollChanged += (sender, e) =>
+            ListViewMovies.ViewTreeObserver.ScrollChanged += (sender, e) =>
             {
-                if (ViewModel.Repositories != null && ViewModel.Repositories.Count > 0 && ListViewRepositories.LastVisiblePosition >= ViewModel.Repositories.Count() - 10)
+                if (ViewModel.Movies != null && ViewModel.Movies.Count > 0 && ListViewMovies.LastVisiblePosition >= ViewModel.Movies.Count() - 10)
                 {
                     ViewModel.LoadMore(null);
                 }
@@ -79,7 +79,7 @@ namespace ArcTouch.Droid.Views
                 
             };
 
-            ListViewRepositories.ScrollStateChanged += (sender, e) =>
+            ListViewMovies.ScrollStateChanged += (sender, e) =>
             {
                 if (e.ScrollState == Android.Widget.ScrollState.Idle)
                 {

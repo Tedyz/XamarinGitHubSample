@@ -11,10 +11,10 @@ namespace ArcTouch.Core.Services
     [Headers("User-Agent: :request:")]
     public interface IIMDBApi
     {
-        [Get("/search/repositories")]
-        Task<ApiResponse<ResponseGitHubRepositories>> GetRepositories(string q, string type, string sort, int page);
+        [Get("/search/movie")]
+        Task<ApiResponse<ResponseIMDBMoviesList>> SearchMovies(string api_key, int page, string query);
 
-        [Get("/repos/{username}/{repo}/pulls")]
-        Task<List<PullRequest>> GetPullRequests([AliasAs("username")] string username, [AliasAs("repo")] string repo, int page, string state = "open");
+        [Get("/movie/{movieId}")]
+        Task<List<PullRequest>> GetMovieDetails([AliasAs("movieId")] string movieId, string api_key);
     }
 }

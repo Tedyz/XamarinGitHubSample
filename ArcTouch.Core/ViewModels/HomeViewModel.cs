@@ -9,8 +9,7 @@ namespace ArcTouch.Core.ViewModels
     public class HomeViewModel : BaseViewModel<object, object>
     {
         private int Page { get; set; } = 1;
-        private Task RepositoriesTask { get; set; }
-        private int RepositoriesListLimit { get; set; } = 999;
+        private Task MoviesTask { get; set; }
 
         public override Task Initialize()
         {
@@ -18,32 +17,26 @@ namespace ArcTouch.Core.ViewModels
             return base.Initialize();
         }
 
-        private async Task GetRepositories()
+        private async Task GetMovies()
         {
             try
             {
                 Loading = true;
 
-                string q = "language:JavaScript";
-
-                if (!string.IsNullOrEmpty(Search))
-                {
-                    q = $"{Search}+in:name+{q}";
-                }
-                var response = await Apis.GitHub.GetRepositories(q, "Repositories", "stars", Page);
+                if(Search == null)
+                    Search = "Jack";
+                
+                var response = await Apis.IMDBApi.SearchMovies(Apis.IMDBApiKey, Page, Search);
 
                 var rep = response.Content;
 
                 if (rep != null)
                 {
-                    rep.Items.ForEach((item) =>
+                    rep.Results.ForEach((item) =>
                     {
-                        if (Repositories.Count <= RepositoriesListLimit)
-                        {
-                            Repositories.Add(item);
-                        }
+                       Movies.Add(item);
                     });
-                    await RaisePropertyChanged(() => Repositories);
+                    await RaisePropertyChanged(() => Movies);
                 }
             }
             catch (Exception e)
@@ -52,7 +45,7 @@ namespace ArcTouch.Core.ViewModels
             }
             Loading = false;
 
-            ShowEmptyState = Repositories.Count == 0;
+            ShowEmptyState = Movies.Count == 0;
         }
 
 
@@ -60,10 +53,10 @@ namespace ArcTouch.Core.ViewModels
         {
             try
             {
-                if (Repositories.Count <= RepositoriesListLimit && (RepositoriesTask == null || RepositoriesTask.IsCompleted))
+                if (MoviesTask == null || MoviesTask.IsCompleted)
                 {
                     Page = page.HasValue ? page.Value : Page + 1;
-                    RepositoriesTask = GetRepositories();
+                    MoviesTask = GetMovies();
                 }
             }
             catch (Exception e)
@@ -95,13 +88,13 @@ namespace ArcTouch.Core.ViewModels
         }
 
         private ObservableCollection<Repository> _repositories = new ObservableCollection<Repository>();
-        public ObservableCollection<Repository> Repositories
+        public ObservableCollection<Repository> Movies
         {
             get => _repositories;
             set
             {
                 _repositories = value;
-                RaisePropertyChanged(() => Repositories);
+                RaisePropertyChanged(() => Movies);
             }
         }
 
@@ -112,19 +105,19 @@ namespace ArcTouch.Core.ViewModels
                 return new MvxCommand(() =>
                {
                    Page = 1;
-                   Repositories.Clear();
+                   Movies.Clear();
                    LoadMore(1);
                });
             }
         }
 
-        public virtual IMvxCommand SelectRepository
+        public virtual IMvxCommand SelectMovie
         {
             get
             {
                 return new MvxCommand<Repository>(async (rep) =>
                 {
-                    await NavigationService.Navigate<PullRequestsViewModel, Repository>(rep);
+                    //await NavigationService.Navigate<PullRequestsViewModel, Repository>(rep);
                 });
             }
         }

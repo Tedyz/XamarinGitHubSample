@@ -6,6 +6,7 @@ namespace ArcTouch.Core.Services
 {
     public interface IApis
     {
-        IGitHubApi GitHub { get; set; }
+        IIMDBApi IMDBApi { get; set; }
+        string IMDBApiKey { get; }
     }
 }
