@@ -6,13 +6,7 @@
 	android:gravity="center"
     android:layout_height="match_parent">
 
-	<ImageView
-		android:layout_width="300dp"
-		android:gravity="center"
-		android:adjustViewBounds="true"
-		android:src="@drawable/empty_state"
-		android:layout_height="wrap_content"
-	/>
+
 	<TextView 
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
@@ -20,7 +14,7 @@
 		android:textStyle="bold"
 		android:text="Ooops! No results found :("
 		android:textSize="18dp"
-		android:textColor="@color/colorPrimaryDark"
+		android:textColor="@android:color/white"
 		android:adjustViewBounds="true"
 		local:MvxBind="Text EmptyTitle"
 		/>
@@ -34,7 +28,7 @@
 		android:textStyle="bold"
 		android:text="Don't worry, just update your search and try again or swipe down to refresh"
 		android:textSize="13dp"
-		android:textColor="@color/colorPrimary"
+		android:textColor="@color/colorAccent"
 		android:adjustViewBounds="true"
 		local:MvxBind="Text EmptySuggestion"
 		/>

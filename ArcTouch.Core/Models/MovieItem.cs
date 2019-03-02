@@ -50,6 +50,7 @@ namespace ArcTouch.Core.Models
         public double VoteAverage { get; set; }
 
         public string FullPosterUrl { get => $"https://image.tmdb.org/t/p/w200{PosterPath}"; }
+        public string FullBackdropPath { get => $"https://image.tmdb.org/t/p/w200{BackdropPath}"; }
 
         public string Genres { get; set; }
     }
