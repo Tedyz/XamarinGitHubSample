@@ -9,10 +9,7 @@ namespace ArcTouch.Core
     {
         public override void Initialize()
         {
-
             Mvx.IoCProvider.RegisterSingleton<IApis>(new Apis());
-
-            RegisterAppStart<HomeViewModel>();
         }
     }
 }
