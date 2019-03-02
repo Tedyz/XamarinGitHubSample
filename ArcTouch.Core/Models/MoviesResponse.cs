@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ArcTouch.Core.Models.ApiModels
+namespace ArcTouch.Core.Models
 {
     public class MoviesResponse
     {
@@ -48,5 +48,7 @@ namespace ArcTouch.Core.Models.ApiModels
 
         [JsonProperty("vote_average")]
         public double VoteAverage { get; set; }
+
+        public string FullPosterUrl { get => $"https://image.tmdb.org/t/p/w500{PosterPath}"; }
     }
 }

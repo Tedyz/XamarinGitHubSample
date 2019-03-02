@@ -40,7 +40,7 @@
 				android:layout_width="match_parent"
 				android:divider="@null"
 				android:dividerHeight="0dp"
-				local:MvxItemTemplate="@layout/item_repository"
+				local:MvxItemTemplate="@layout/item_movie"
 				local:MvxBind="ItemsSource Movies; ItemClick SelectMovie"/>
 		</android.support.v4.widget.SwipeRefreshLayout>
 

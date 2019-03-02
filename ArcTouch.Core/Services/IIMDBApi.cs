@@ -15,6 +15,6 @@ namespace ArcTouch.Core.Services
         Task<ApiResponse<ResponseIMDBMoviesList>> SearchMovies(string api_key, int page, string query);
 
         [Get("/movie/{movieId}")]
-        Task<List<PullRequest>> GetMovieDetails([AliasAs("movieId")] string movieId, string api_key);
+        Task<List<MoviesDetails>> GetMovieDetails([AliasAs("movieId")] string movieId, string api_key);
     }
 }

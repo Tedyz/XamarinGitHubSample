@@ -24,7 +24,7 @@ namespace ArcTouch.Core.ViewModels
                 Loading = true;
 
                 if(Search == null)
-                    Search = "Jack";
+                    Search = "Ring";
                 
                 var response = await Apis.IMDBApi.SearchMovies(Apis.IMDBApiKey, Page, Search);
 
@@ -87,13 +87,13 @@ namespace ArcTouch.Core.ViewModels
             }
         }
 
-        private ObservableCollection<Repository> _repositories = new ObservableCollection<Repository>();
-        public ObservableCollection<Repository> Movies
+        private ObservableCollection<MoviesResponse> _movies = new ObservableCollection<MoviesResponse>();
+        public ObservableCollection<MoviesResponse> Movies
         {
-            get => _repositories;
+            get => _movies;
             set
             {
-                _repositories = value;
+                _movies = value;
                 RaisePropertyChanged(() => Movies);
             }
         }
@@ -115,7 +115,7 @@ namespace ArcTouch.Core.ViewModels
         {
             get
             {
-                return new MvxCommand<Repository>(async (rep) =>
+                return new MvxCommand<MoviesResponse>(async (rep) =>
                 {
                     //await NavigationService.Navigate<PullRequestsViewModel, Repository>(rep);
                 });

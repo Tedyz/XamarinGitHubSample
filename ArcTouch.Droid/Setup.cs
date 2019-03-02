@@ -20,8 +20,7 @@ namespace ArcTouch.Droid
             Picasso picasso = new Picasso.Builder(ApplicationContext).Downloader(new OkHttpDownloader(ApplicationContext.CacheDir, 30000000)).Build();
             Picasso.SetSingletonInstance(picasso);
 
-            registry.RegisterFactory(new MvxCustomBindingFactory<ImageView>("ImageUrl", (view) => new ImageUrlToLoadBinding(view, 1, 1)));
-            registry.RegisterFactory(new MvxCustomBindingFactory<WebView>("SourceHtml", (view) => new WebViewBinding(view)));
+            registry.RegisterFactory(new MvxCustomBindingFactory<ImageView>("ImageUrl", (view) => new ImageUrlToLoadBinding(view, Resource.Drawable.ic_launcher, Resource.Drawable.ic_launcher)));
 
 
             base.FillTargetFactories(registry);

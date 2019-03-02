@@ -11,6 +11,6 @@ namespace ArcTouch.Core.Models.Api
         public int Page { get; set; }
 
         [JsonProperty(PropertyName = "results")]
-        public List<Repository> Results { get; set; }
+        public List<MoviesResponse> Results { get; set; }
     }
 }

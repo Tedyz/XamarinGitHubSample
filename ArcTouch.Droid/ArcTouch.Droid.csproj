@@ -57,7 +57,6 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomBindings\WebViewBinding.cs" />
     <Compile Include="CustomBindings\ImageUrlToLoadBinding.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Setup.cs" />
@@ -159,7 +158,7 @@
     <Folder Include="Views\CustomViews\" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\item_repository.axml">
+    <AndroidResource Include="Resources\layout\item_movie.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

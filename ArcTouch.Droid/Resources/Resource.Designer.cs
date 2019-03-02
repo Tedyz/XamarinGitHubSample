@@ -7274,7 +7274,7 @@ namespace ArcTouch.Droid
 			public const int empty_state = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
-			public const int item_repository = 2130903083;
+			public const int item_movie = 2130903083;
 			
 			// aapt resource value: 0x7f03002c
 			public const int loading_bar = 2130903084;
