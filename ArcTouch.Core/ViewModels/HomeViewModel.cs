@@ -31,11 +31,19 @@ namespace ArcTouch.Core.ViewModels
         
         public async Task GetGenres()
         {
-            var response = await Apis.IMDBApi.GetGenres(Apis.IMDBApiKey);
-            if (response != null && Genres.Count == 0)
+            try
             {
-                Genres.AddRange(response.Genres);
+                var response = await Apis.IMDBApi.GetGenres(Apis.IMDBApiKey);
+                if (response != null && Genres.Count == 0)
+                {
+                    Genres.AddRange(response.Genres);
+                }
             }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+           
         }
 
         public async Task GetMovies()

@@ -35,10 +35,18 @@ namespace ArcTouch.Core.ViewModels
         private async Task GetMovieDetail()
         {
             Loading = true;
-            if(Movie != null)
+            try
             {
-                MovieDetails = await Apis.IMDBApi.GetMovieDetails(Movie.Id, Apis.IMDBApiKey);
+                if (Movie != null)
+                {
+                    MovieDetails = await Apis.IMDBApi.GetMovieDetails(Movie.Id, Apis.IMDBApiKey);
+                }
             }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }            
+           
             Loading = false;
         }
     }
