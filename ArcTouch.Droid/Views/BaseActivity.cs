@@ -28,13 +28,13 @@ namespace ArcTouch.Droid.Views
         protected override void OnResume()
         {
             base.OnResume();
-            OverridePendingTransition(Resource.Animation.abc_fade_in, Resource.Animation.abc_fade_out);
+            //OverridePendingTransition(Resource.Animation.abc_slide_in_top, Resource.Animation.abc_slide_out_bottom);
         }
 
         protected override void OnPause()
         {
             base.OnPause();
-            OverridePendingTransition(Resource.Animation.abc_fade_in, Resource.Animation.abc_fade_out);
+            //OverridePendingTransition(Resource.Animation.abc_slide_in_top, Resource.Animation.abc_slide_out_bottom);
         }
 
         private void PrepareToolbar()
