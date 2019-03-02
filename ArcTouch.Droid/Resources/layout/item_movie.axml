@@ -14,7 +14,6 @@
 		<LinearLayout 
 			android:padding="10dp"
 			android:orientation="horizontal"
-			android:background="@android:color/white"
 			android:layout_width="match_parent"
 			android:weightSum="1"
 			android:paddingBottom="5dp"

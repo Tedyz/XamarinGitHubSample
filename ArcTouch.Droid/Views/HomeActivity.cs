@@ -51,9 +51,7 @@ namespace ArcTouch.Droid.Views
             MyToggle = new ActionBarDrawerToggle(this, MyDrawerLayout, Resource.String.open_drawer, Resource.String.close_drawer);
             MyDrawerLayout.AddDrawerListener(MyToggle);
             MyToggle.SyncState();
-
             
-
             ListViewMovies.ViewTreeObserver.ScrollChanged += (sender, e) =>
             {
                 if (ViewModel.Movies != null && ViewModel.Movies.Count > 0 && ListViewMovies.LastVisiblePosition >= ViewModel.Movies.Count() - 10)

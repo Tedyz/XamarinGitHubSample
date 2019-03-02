@@ -50,7 +50,7 @@
 			android:layout_height="wrap_content"
 			android:layout_gravity="bottom|right"
 			android:layout_margin="16dp"
-			android:backgroundTint="@color/colorPrimary"
+			android:backgroundTint="@color/colorPrimaryDark"
 			local:borderWidth="0dp"
 			android:tint="@android:color/white"
 			android:src="@drawable/abc_ic_search_api_material"
