@@ -40,7 +40,17 @@
 					android:textColor="@color/description"
 					android:textSize="11dp"
 					android:maxLines="3"
-					local:MvxBind="Text Overview"
+					local:MvxBind="Text Genres"
+					android:text="Lorem Ipsum"/>
+				<TextView 
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dp"
+					android:paddingRight="5dp"
+					android:textColor="@color/description"
+					android:textSize="11dp"
+					android:maxLines="3"
+					local:MvxBind="Text ReleaseDate"
 					android:text="Lorem Ipsum"/>
 			</LinearLayout>
 
@@ -49,7 +59,7 @@
 			android:layout_width="0dp"
 			android:orientation="vertical"
 			android:layout_gravity="center"
-			android:layout_height="wrap_content">
+			android:layout_height="100dp">
 			<ImageView 
 				android:layout_gravity="center"
 				android:layout_width="match_parent"
