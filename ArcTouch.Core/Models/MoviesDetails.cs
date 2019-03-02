@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ArcTouch.Core.Models
@@ -83,7 +84,19 @@ namespace ArcTouch.Core.Models
         public int VoteCount { get; set; }
 
         public string FullPosterUrl { get => $"https://image.tmdb.org/t/p/w500{PosterPath}"; }
+        public string GenreListed
+        {
+            get
+            {
+                if (Genres != null)
+                {
+                    return String.Join(", ", Genres.Select(x => x.Name));
+                }
 
+                return String.Empty;
+            }
+        }
+        public string FullBackdropPath { get => $"https://image.tmdb.org/t/p/w500{BackdropPath}"; }
     }
 
     public class Genre

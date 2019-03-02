@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ArcTouch.Core.Models
 {
-    public class MoviesResponse
+    public class MovieItem
     {
         [JsonProperty("poster_path")]
         public string PosterPath { get; set; }
@@ -49,6 +49,8 @@ namespace ArcTouch.Core.Models
         [JsonProperty("vote_average")]
         public double VoteAverage { get; set; }
 
-        public string FullPosterUrl { get => $"https://image.tmdb.org/t/p/w500{PosterPath}"; }
+        public string FullPosterUrl { get => $"https://image.tmdb.org/t/p/w200{PosterPath}"; }
+
+        public string Genres { get; set; }
     }
 }
