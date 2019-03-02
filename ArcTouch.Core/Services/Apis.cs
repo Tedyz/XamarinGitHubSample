@@ -12,7 +12,7 @@ namespace ArcTouch.Core.Services
 
         public Apis()
         {
-            var client = new HttpClient() { BaseAddress = new Uri("https://api.themoviedb.org/3") };
+            var client = new HttpClient() { BaseAddress = new Uri("https://api.themoviedb.org/3"), Timeout = new TimeSpan(0,0,3) };
             IMDBApi = RestService.For<IIMDBApi>(client);
         }
     }
