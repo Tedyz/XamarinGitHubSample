@@ -134,7 +134,9 @@ namespace ArcTouch.Droid.Views
             }
             else
             {
-                base.OnBackPressed();
+                Search.SetQuery("", false);
+                Search.ClearFocus();
+                //base.OnBackPressed();
             }
         }
 
