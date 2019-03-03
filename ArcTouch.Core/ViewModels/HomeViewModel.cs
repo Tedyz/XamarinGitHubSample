@@ -137,7 +137,7 @@ namespace ArcTouch.Core.ViewModels
         {
             get
             {
-                return new MvxCommand(async () =>
+                return new MvxCommand(() =>
                {
                    Page = 1;
                    Movies.Clear();
